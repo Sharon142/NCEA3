@@ -1,23 +1,8 @@
-let userName = document.querySelector("#userName");
-let name = document.querySelector("#name");
-let greetings = document.querySelector("#greetings");
 let quiz = document.querySelector("#quiz");
 let answer = document.querySelector("#answer");
 let question = 0;
 quiz.style.display = "none";
-function input(){
-   if (userName.value == "" || userName.value == null) {
-    alert("Name must be filled out");
-    quiz.style.display = "none";
-    return false;
-   } else {
-    name.innerHTML = ""
-    name.innerHTML = "Hello " + userName.value + ", welcome to my quiz.";
-    greetings.style.display ="none"
-    quiz.style.display ="block" 
-    return true; 
-   } 
-  }
+
   
 const questionContainer = document.getElementById("questionContainer"); // Access the container element
 // Loop through the questionList and create a <p> element for each question
