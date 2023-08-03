@@ -19,6 +19,18 @@ function input(){
    } 
   }
   
+const questionContainer = document.getElementById("questionContainer"); // Access the container element
+// Loop through the questionList and create a <p> element for each question
+questionList.forEach((question) => {
+    // Create a new <p> element
+    const questionElement = document.createElement("p");
+  
+    // Set the text content of the <p> element to the question
+    questionElement.textContent = question;
+  
+    // Append the <p> element to the container
+    questionContainer.appendChild(questionElement);
+  });
   const Question = document.querySelector("#question");//used to link the html coding using '#question'
     const Answer = document.querySelector("#answer");//input from the user
     const Verdict = document.querySelector("#verdict");//determines whether or not the question is correct
