@@ -10,7 +10,6 @@ class PasswordManager:
 
     def create_key(self , path):  
         self.key = Fernet.generate_key()
-        print(self.key)  
+        with open(path, 'wb') as f:
 
-pm = PasswordManager()
-pm.create_key()
+            f.write(self.key)
