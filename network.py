@@ -13,9 +13,11 @@ class PasswordManager:
         with open(path, 'wb') as f:
             f.write(self.key)
 
-pm = PasswordManager()
-pm.create_key("mykey.key")
+    def load_key(self, path):
+        with open(path, 'rb') as f:
+            self.key = f.read() 
 
+    def create_password_file(self, path, initial_values=None):
+        self.password_file = path
 
-    
-   
+        if initi
