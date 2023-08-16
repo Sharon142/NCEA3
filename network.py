@@ -27,10 +27,15 @@ class PasswordManager:
     def load_password_file(self, path):  
         self.password_file = path      
 
-        with open(path, 'r') as f:
-            for line in f:
+        try:
+           with open(path, 'r') as f:
+               for line in f:
                 site, encrypted = line.split(":")
-                self.password_dict[site] = Fernet(self.key).decrypt(encrypted.encode()).decode()
+                fernet_obj = Fernet(self.key)
+                decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
+                self.password_dict[site] = decrypted
+        except Exception as e:
+            print(f"Error loading password file: {e}")
 
     def add_password(self, site, password):
         self.password_dict[site] = password
