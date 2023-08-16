@@ -43,7 +43,6 @@ class PasswordManager:
     def get_password(self, site):
         return self.password_dict[site]
 
-
 def main():
     password = {
         "email": "1234567",
