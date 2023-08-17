@@ -84,7 +84,7 @@ def main():
             pm.create_password_file(path, password)
         elif choice == "4":
             path = input("Enter path: ")
-            pm.load_password_file(path)
+            pm.load_password_file(path, password)
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")
