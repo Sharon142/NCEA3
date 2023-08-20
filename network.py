@@ -1,4 +1,5 @@
 from cryptography.fernet import Fernet
+import os # Import the os module
 
 
 class PasswordManager:
@@ -84,7 +85,12 @@ def main():
             pm.create_password_file(path, password)
         elif choice == "4":
             path = input("Enter path: ")
-            pm.load_password_file(path)
+
+            # Check if the file exists
+            if not os.path.isfile(path) : 
+                print(f"The file '{path}' does not exist.")
+            else:
+                pm.load_password_file(path)
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")
