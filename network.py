@@ -26,15 +26,15 @@ class PasswordManager:
                 self.add_password(key, value) 
 
     def load_password_file(self, path):  
-        self.password_file = path      
-
+        self.password_file = path  
+         
         try:
            with open(path, 'r') as f:
-               for line in f:
-                site, encrypted = line.split(":")
-                fernet_obj = Fernet(self.key)
-                decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
-                self.password_dict[site] = decrypted
+               for line in f:        
+                   site, encrypted = line.split(":")
+                   fernet_obj = Fernet(self.key)
+                   decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
+                   self.password_dict[site] = decrypted
         except Exception as e:
             print(f"Error loading password file: {e}")
 
