@@ -36,7 +36,7 @@ class PasswordManager:
                    decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
                    self.password_dict[site] = decrypted
         except Exception as e:
-            print(f"Error loading password file: {e}")
+           print(f"Error loading password file: {e}")
 
     def add_password(self, site, password):
         self.password_dict[site] = password
