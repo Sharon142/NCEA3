@@ -9,16 +9,16 @@ class PasswordManager:
         self.password_file = None #The password file is not specified
         self.password_dict = {} #This is an empty password dictionary
 
-    def create_key(self, path):  
-        self.key = Fernet.generate_key()
-        with open(path, 'wb') as f:
+    def create_key(self, path): #generates encryption key and store it in the encryption file so that it can be used again
+        self.key = Fernet.generate_key() #calls the generate key method of Fernet
+        with open(path, 'wb') as f: #stores the key into the file so that the key can be loaded later.  This path is open in writing bytes mode sf
             f.write(self.key)
 
-    def load_key(self, path):
-        with open(path, 'rb') as f:
-            self.key = f.read() 
+    def load_key(self, path): #This function loads and decrypts the key generated
+        with open(path, 'rb') as f: #loads and decrypts the key in reading bytes 
+            self.key = f.read() #self.key is anything inside 'f'
 
-    def create_password_file(self, path, initial_values=None):
+    def create_password_file(self, path, initial_values=None): #the function creates the password files and specifies the initial value (none) because this function can pass any function when the encryption key is already generated and used
         self.password_file = path
 
         if initial_values is not None:
