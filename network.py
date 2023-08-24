@@ -19,13 +19,13 @@ class PasswordManager:
             self.key = f.read() #self.key is anything inside 'f'
 
     def create_password_file(self, path, initial_values=None): #the function creates the password files and specifies the initial value (none) because this function can pass any function when the encryption key is already generated and used
-        self.password_file = path
+        self.password_file = path 
 
-        if initial_values is not None:
-            for key, value in initial_values.items():
-                self.add_password(key, value) 
+        if initial_values is not None: #if statement
+            for key, value in initial_values.items(): #items can be iterated over the list of key values
+                self.add_password(key, value)  
 
-    def load_password_file(self, path):  
+    def load_password_file(self, path): #this function loads the password file for the password dictionary to be the content of the file once it is decrypted  
         self.password_file = path  
          
         try:
