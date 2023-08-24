@@ -25,20 +25,20 @@ class PasswordManager:
             for key, value in initial_values.items(): #items can be iterated over the list of key values
                 self.add_password(key, value)  
 
-    def load_password_file(self, path): #this function loads the password file for the password dictionary to be the content of the file once it is decrypted  
-        self.password_file = path  
+    def load_password_file(self, path): #this function loads the password file for the password dictionary to be the content of the file once it is decrypted   
+        self.password_file = path  #add password to existing file
          
         try:
-           with open(path, 'r') as f:
-               for line in f:        
-                   site, encrypted = line.split(":")
-                   fernet_obj = Fernet(self.key)
+           with open(path, 'r') as f: #open the path in reading mode 
+               for line in f:  #decrypt each line in the password file       
+                   site, encrypted = line.split(":") #the colon separates each key value
+                   fernet_obj = Fernet(self.key) 
                    decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
-                   self.password_dict[site] = decrypted
+                   self.password_dict[site] = decrypted #load the password to the respective site 
         except Exception as e:
            print(f"Error loading password file: {e}")
 
-    def add_password(self, site, password):
+    def add_password(self, site, password): #
         self.password_dict[site] = password
 
         if self.password_file is not None: 
