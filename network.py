@@ -23,7 +23,7 @@ class PasswordManager:
 
         if initial_values is not None: #if statement
             for key, value in initial_values.items(): #items can be iterated over the list of key values
-                self.add_password(key, value)  
+                self.add_password(key, value) #for end-users to add passwords 
 
     def load_password_file(self, path): #this function loads the password file for the password dictionary to be the content of the file once it is decrypted   
         self.password_file = path  #add password to existing file
@@ -33,21 +33,21 @@ class PasswordManager:
                for line in f:  #decrypt each line in the password file       
                    site, encrypted = line.split(":") #the colon separates each key value
                    fernet_obj = Fernet(self.key) 
-                   decrypted = fernet_obj.decrypt(encrypted.encode()).decode()
+                   decrypted = fernet_obj.decrypt(encrypted.encode()).decode() #decrypting passwords
                    self.password_dict[site] = decrypted #load the password to the respective site 
-        except Exception as e:
-           print(f"Error loading password file: {e}")
+        except Exception as e: 
+           print(f"Error loading password file: {e}") #error message when the programme cannot load the password file
 
-    def add_password(self, site, password): #
-        self.password_dict[site] = password
+    def add_password(self, site, password): #adding the password  
+        self.password_dict[site] = password #adding password to the dictionary
 
-        if self.password_file is not None: 
-            with open(self.password_file, 'a+') as f:
-                encrypted = Fernet(self.key).encrypt(password.encode()) 
-                f.write(site + ":" + encrypted.decode() + "\n")
+        if self.password_file is not None: #password file has value which is input by the user
+            with open(self.password_file, 'a+') as f: #helps the end-user write their passwords with the passwords being overwritten  
+                encrypted = Fernet(self.key).encrypt(password.encode()) #makes sure that Fernet is used for encrypting and decrypting passwords
+                f.write(site + ":" + encrypted.decode() + "\n") #allows the passwords to the written and encrypt the passwords and the line break indicates that there is a password for each line
 
-    def get_password(self, site):
-        return self.password_dict[site]
+    def get_password(self, site): #password for the site or identifier
+        return self.password_dict[site] #the password is return to the dictionary
 
 def main():
     password = {
