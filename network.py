@@ -47,9 +47,9 @@ class PasswordManager:
                 f.write(site + ":" + encrypted.decode() + "\n") #allows the passwords to the written and encrypt the passwords and the line break indicates that there is a password for each line
 
     def get_password(self, site): #password for the site or identifier
-        return self.password_dict[site] #the password is return to the dictionary
+        return self.password_dict[site] #the password returns to the dictionary
 
-def main():
+def main(): #list of passwords stored for email, instagram, youtube, and something else
     password = {
         "email": "1234567",
         "instagram": "myigpassword",
@@ -59,7 +59,7 @@ def main():
 
     pm = PasswordManager()
 
-    print("""What do you want to do?
+    print("""What do you want to do? 
     (1) Create a new key
     (2) Load an existing key
     (3) Create new password file
@@ -67,11 +67,11 @@ def main():
     (5) Add a new password
     (6) Get a password
     (q) Quit                         
-    """)
+    """) #a question with a list of choices provided by the programme
 
     done = False
 
-    while not done:
+    while not done: #while the user is still within the programme these are the options proivded and the outcome that is expected to be produced
 
         choice = input("Enter your choice: ")
         if choice == "1":
