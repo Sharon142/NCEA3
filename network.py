@@ -91,7 +91,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
             if not os.path.isfile(path) : 
                 print(f"The file '{path}' does not exist.")
             else:
-                pm.load_password_file(path)
+                pm.load_password_file(path(env))
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")
