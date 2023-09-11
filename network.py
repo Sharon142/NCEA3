@@ -1,7 +1,7 @@
 from cryptography.fernet import Fernet #Crytography is a python library that is imported to this programme.  It encrypts and decrypts password files stored in this database.  Fernet generates a key that encrypts and decrypts the password file.   
 import os #Import the os module from raspberry pi
 env = {'PASS' : '/pass/techfolder'}
-
+os.get_exec_path(env)
 
 class PasswordManager:
 
