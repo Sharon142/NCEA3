@@ -1,16 +1,16 @@
 from cryptography.fernet import Fernet #Crytography is a python library that is imported to this programme.  It encrypts and decrypts password files stored in this database.  Fernet generates a key that encrypts and decrypts the password file.   
-import os #Import the os module from raspberry pi
+import os #Import the os module from Raspberry Pi.
 
 
 class PasswordManager:
     #test
 
-    def __init__(self): #this is a defined constructror
-        self.key = None #by default there is no encryption key generated
-        self.password_file = None #The password file is not specified
-        self.password_dict = {} #This is an empty password dictionary
+    def __init__(self): #This is a defined constructror.
+        self.key = None #By default there is no encryption key generated.
+        self.password_file = None #The password file is not specified.
+        self.password_dict = {} #This is an empty password dictionary.
 
-    def create_key(self, path): #generates encryption key and store it in the encryption file so that it can be used again
+    def create_key(self, path): #Generates encryption key and store it in the encryption file so that it can be used again
         self.key = Fernet.generate_key() #calls the generate key method of Fernet
         with open(path, 'wb') as f: #stores the key into the file so that the key can be loaded later.  This path is open in writing bytes mode sf
             f.write(self.key)
