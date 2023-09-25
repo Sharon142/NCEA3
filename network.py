@@ -2,26 +2,29 @@ from cryptography.fernet import Fernet
 import os
 #Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
 
-
+ #The code below runs the comments of the password manager
 class PasswordManager:
-    #test
-
-    def __init__(self): #This is a defined constructror.
-        self.key = None #By default there is no encryption key generated.
-        self.password_file = None #The password file is not specified.
-        self.password_dict = {} #This is an empty password dictionary.
-
-    def create_key(self, path): #Generates encryption key and store it in the encryption file so that it can be used again
-        self.key = Fernet.generate_key() #calls the generate key method of Fernet
-        with open(path, 'wb') as f: #stores the key into the file so that the key can be loaded later.  This path is open in writing bytes mode sf
+   
+    def __init__(self): 
+        self.key = None 
+        self.password_file = None 
+        self.password_dict = {} 
+#This function is an empty dictionary that does not specify a password file and generates an encryption key by default.
+    
+    def create_key(self, path): 
+        self.key = Fernet.generate_key() 
+        with open(path, 'wb') as f: 
             f.write(self.key)
+#This function generates and encryption key that can be reused using the key method of Fernet.  
 
-    def load_key(self, path): #This function loads and decrypts the key generated
-        with open(path, 'rb') as f: #loads and decrypts the key in reading bytes 
-            self.key = f.read() #self.key is anything inside 'f'
+    def load_key(self, path): 
+        with open(path, 'rb') as f:  
+            self.key = f.read() 
+#This function loads and decrypts the key generated
 
-    def create_password_file(self, path, initial_values=None): #the function creates the password files and specifies the initial value (none) because this function can pass any function when the encryption key is already generated and used
+    def create_password_file(self, path, initial_values=None): 
         self.password_file = path 
+    #This function enables any function in this programme that has a generated encryption key to run.
 
         if initial_values is not None: #if statement
             for key, value in initial_values.items(): #items can be iterated over the list of key values
