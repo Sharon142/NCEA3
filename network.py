@@ -26,34 +26,35 @@ class PasswordManager:
         self.password_file = path 
     #This function enables any function in this programme that has a generated encryption key to run.
 
-        if initial_values is not None: #if statement
-            for key, value in initial_values.items(): #items can be iterated over the list of key values
-                self.add_password(key, value) #for end-users to add passwords 
+        if initial_values is not None: 
+            for key, value in initial_values.items(): 
+                self.add_password(key, value)  
+        #If the end-user has created a password, the list of passwords and its accounts must be iterated and the end-user must be allowed to add paswwords.
 
-    def load_password_file(self, path): #this function loads the password file for the password dictionary to be the content of the file once it is decrypted   
-        self.password_file = path  #add password to existing file
-         
+    def load_password_file(self, path): 
+        self.password_file = path  
+    #After the passwords are decrypted, the system loads the password file to the password dictionary.     
         try:
-           with open(path, 'r') as f: #open the path in reading mode 
-               for line in f:  #decrypt each line in the password file       
-                   site, encrypted = line.split(":") #the colon separates each key value
+           with open(path, 'r') as f:  
+               for line in f:         
+                   site, encrypted = line.split(":") 
                    fernet_obj = Fernet(self.key) 
-                   decrypted = fernet_obj.decrypt(encrypted.encode()).decode() #decrypting passwords
-                   self.password_dict[site] = decrypted #load the password to the respective site 
+                   decrypted = fernet_obj.decrypt(encrypted.encode()).decode() 
+                   self.password_dict[site] = decrypted  
         except Exception as e: 
-           print(f"Error loading password file: {e}") #error message when the programme cannot load the password file
-
-    def add_password(self, site, password): #adding the password  
-        self.password_dict[site] = password #adding password to the dictionary
-
-        if self.password_file is not None: #password file has value which is input by the user
-            with open(self.password_file, 'a+') as f: #helps the end-user write their passwords with the passwords being overwritten  
-                encrypted = Fernet(self.key).encrypt(password.encode()) #makes sure that Fernet is used for encrypting and decrypting passwords
+           print(f"Error loading password file: {e}") 
+        #The function decrypts and loads passwords for the end-user on the respective site but an error will appear when the password cannot be loaded.  
+    def add_password(self, site, password):   
+        self.password_dict[site] = password 
+   
+        if self.password_file is not None: 
+            with open(self.password_file, 'a+') as f: 
+                encrypted = Fernet(self.key).encrypt(password.encode()) 
                 f.write(site + ":" + encrypted.decode() + "\n") #allows the passwords to the written and encrypt the passwords and the line break indicates that there is a password for each line
-
-    def get_password(self, site): #password for the site or identifier
-        return self.password_dict[site] #the password returns to the dictionary
-
+        #This function allows the end-user to add passwords to their password dictionary.  Their passwords will be encrypted and decrypted by Fernet.
+    def get_password(self, site): 
+        return self.password_dict[site] 
+    #The password of the site will be returned to the password dictionary.
 def main(): #list of passwords stored for email, instagram, youtube, and something else
     password = {
         "email": "1234567",
@@ -112,3 +113,4 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
 
 if __name__ == "__main__":
     main()
+#This enables the programme to run
