@@ -103,7 +103,6 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
             pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
-            print(f"Password for {site} is {pm.get_password(site)}")
         elif choice == "q":
             done = True
             print("Bye")
