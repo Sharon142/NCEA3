@@ -112,5 +112,5 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
 
 
 if __name__ == "__main__":
-    main(path)
+    main()
 #This enables the programme to run
