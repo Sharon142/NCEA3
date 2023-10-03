@@ -91,9 +91,9 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
             pm.create_password_file(path, password)
         elif choice == "4":
             path = input("Enter path: ")
-
+       
             # Check if the file exists
-            if not os.path.isfile() : 
+            if not os.path.isfile(path) : 
                 print(f"The file '{path}' does not exist.")
             else:
                 pm.load_password_file()
