@@ -78,7 +78,11 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
     done = False
 
     while not done: #while the user is still within the programme these are the options proivded and the outcome that is expected to be produced
+# Assuming you have a password string in a variable called 'password'
+password = "my_secure_password"
 
+# Calculate the length of the password
+password_length = len(password)
         choice = input("Enter your choice: ")
         if choice == "1":
             path = input("Enter path: ")
@@ -99,7 +103,11 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")
-            pm.add_password(site, password)
+            if password_length < 12:
+                print("weak password length")
+            else: 
+                print("suitable password length")
+                pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
         elif choice == "q":
