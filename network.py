@@ -81,9 +81,11 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
 # Assuming you have a password string in a variable called 'password'
 password = "my_secure_password"
 
+pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
+
 # Calculate the length of the password
 password_length = len(password)
-        choice = input("Enter your choice: ")
+choice = input("Enter your choice: ")
         if choice == "1":
             path = input("Enter path: ")
             pm.create_key(path)
