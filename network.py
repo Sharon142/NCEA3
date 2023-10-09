@@ -63,7 +63,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
         "something": "myfavoritepassword_123"
     }
 
-    pm = PasswordManager()
+    pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
 
     print("""What do you want to do? 
     (1) Create a new key
@@ -77,15 +77,9 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
 
     done = False
 
-    while not done: #while the user is still within the programme these are the options proivded and the outcome that is expected to be produced
-# Assuming you have a password string in a variable called 'password'
-password = "my_secure_password"
-
-pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
-
-# Calculate the length of the password
-password_length = len(password)
-choice = input("Enter your choice: ")
+    while not done: 
+       
+        choice = input("Enter your choice: ")
         if choice == "1":
             path = input("Enter path: ")
             pm.create_key(path)
@@ -105,6 +99,7 @@ choice = input("Enter your choice: ")
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")
+            
             if password_length < 12:
                 print("weak password length")
             else: 
@@ -117,7 +112,6 @@ choice = input("Enter your choice: ")
             print("Bye")
         else:
             print("Invalid choice!")
-
 
 if __name__ == "__main__":
     main()
