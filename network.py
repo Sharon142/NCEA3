@@ -98,9 +98,8 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
                 pm.load_password_file(path)
         elif choice == "5":
             site = input("Enter the site: ")
-            password = input("Enter the password: ")
-            
-            if password_length < 12:
+            password = input("Enter the password: ")            
+            if len(password) < 12:
                 print("weak password length")
             else: 
                 print("suitable password length")
