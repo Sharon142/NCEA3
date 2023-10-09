@@ -107,8 +107,10 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
         elif choice == "6":
             site = input("What site do you want: ")
         elif choice == "q":
-            done = True
-            print("Bye")
+              done = True
+              print("Bye")
+        elif choice == "Q":
+               print("input must be 'q'") 
         else:
             print("Invalid choice!")
 
