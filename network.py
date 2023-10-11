@@ -2,6 +2,19 @@ from cryptography.fernet import Fernet
 import os
 #Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
 
+from docx import Document
+
+# Open an existing Word document
+doc = Document('pass.docx')
+
+# Access and modify content in the document
+for paragraph in doc.paragraphs:
+    if 'replace this' in paragraph.text:
+        paragraph.text = paragraph.text.replace('replace this', 'with this')
+
+# Save the modified document
+doc.save('pass.docx')
+
  #The code below runs the comments of the password manager
 class PasswordManager:
    
