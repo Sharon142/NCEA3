@@ -78,7 +78,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
 
     pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
 
-    print("""What do you want to do? 
+    print("""What do you want to do?
     (1) Create a new key
     (2) Load an existing key
     (3) Create new password file
