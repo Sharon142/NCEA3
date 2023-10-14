@@ -1,7 +1,20 @@
 from cryptography.fernet import Fernet 
 import os
 #Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
+# Get the current directory of the Python script
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
+# Specify the filename you want to check
+file_to_check = "pass.docx"
+
+# Create the full path by joining the script directory and the filename
+file_path = os.path.join(script_directory, file_to_check)
+
+# Check if the file exists
+if os.path.isfile(file_path):
+    print(f"The file '{file_to_check}' exists in the script directory.")
+else:
+    print(f"The file '{file_to_check}' does not exist in the script directory.")
 from docx import Document
 
 # Open an existing Word document
