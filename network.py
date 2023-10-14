@@ -7,10 +7,8 @@ from docx import Document
 # Open an existing Word document
 doc = Document('pass.docx')
 
-# Access and modify content in the document
-for paragraph in doc.paragraphs:
-    if 'replace this' in paragraph.text:
-        paragraph.text = paragraph.text.replace('replace this', 'with this')
+# Add the new password as a paragraph to the document
+doc.add_paragraph(f'New Password: {input}')
 
 # Save the modified document
 doc.save('pass.docx')
