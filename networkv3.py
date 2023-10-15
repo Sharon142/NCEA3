@@ -4,8 +4,10 @@ import os
 from docx import Document
 # Open an existing Word document
 doc = Document('pass.docx')
-# Add the new password as a paragraph to the document
-doc.add_paragraph(f'New Password: {input}')
+# Access and modify content in the document
+for paragraph in doc.paragraphs:
+    if 'replace this' in paragraph.text:
+        paragraph.text = paragraph.text.replace('replace this', 'with this')
 # Save the modified document
 doc.save('pass.docx')
  #The code below runs the comments of the password manager
@@ -64,6 +66,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
         "youtube": "helloworld123",
         "something": "myfavoritepassword_123"
     }
+
     pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
     print("""What do you want to do?
     (1) Create a new key
@@ -104,12 +107,13 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
                 pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
-        elif choice.lower() == "q":
+        elif choice == "q":
               done = True
               print("Bye")
+        elif choice == "Q":
+               print("input must be 'q'") 
         else:
             print("Invalid choice!")
-
 if __name__ == "__main__":
     main()
-#This enables the programme to run    
+#This enables the programme to run 
