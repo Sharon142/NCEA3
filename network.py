@@ -77,7 +77,7 @@ class PasswordManager:
     def get_password(self, site): 
         return self.password_dict[site] 
     #The password of the site will be returned to the password dictionary.
-def main(): #list of passwords stored for email, instagram, youtube, and something else
+def main(): 
     password = {
         "email": "1234567",
         "instagram": "myigpassword",
