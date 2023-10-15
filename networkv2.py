@@ -126,5 +126,5 @@ class PasswordManager:
             print("Invalid choice!")
 
 if __name__ == "__main__":
-    main()
+    doc()
 #This enables the programme to run
