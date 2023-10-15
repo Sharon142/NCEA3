@@ -1,15 +1,6 @@
 from cryptography.fernet import Fernet 
 import os
 #Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
-from docx import Document
-# Open an existing Word document
-doc = Document('pass.docx')
-# Access and modify content in the document
-for paragraph in doc.paragraphs:
-    if 'replace this' in paragraph.text:
-        paragraph.text = paragraph.text.replace('replace this', 'with this')
-# Save the modified document
-doc.save('pass.docx')
  #The code below runs the comments of the password manager
 class PasswordManager:
    
@@ -66,9 +57,8 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
         "youtube": "helloworld123",
         "something": "myfavoritepassword_123"
     }
-
-    pm = PasswordManager() #'pm' is used to define the variable for options 1-6.
-    print("""What do you want to do?
+    pm = PasswordManager()
+    print("""What do you want to do? 
     (1) Create a new key
     (2) Load an existing key
     (3) Create new password file
@@ -78,6 +68,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
     (q) Quit                         
     """) #a question with a list of choices provided by the programme
     done = False
+
     while not done: 
        
         choice = input("Enter your choice: ")
@@ -107,13 +98,12 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
                 pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
-        elif choice == "q":
+        elif choice.lower() == "q":
               done = True
               print("Bye")
-        elif choice == "Q":
-               print("input must be 'q'") 
         else:
             print("Invalid choice!")
+
 if __name__ == "__main__":
     main()
-#This enables the programme to run 
+#This enables the programme to run
