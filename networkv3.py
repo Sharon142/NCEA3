@@ -1,7 +1,7 @@
 from cryptography.fernet import Fernet 
 import os
-#Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
- #The code below runs the program of the password manager
+#'Fernet' class is imported from the 'cryptography.fernet' module.
+#The program imports the os module from the Raspberry Pi OS functionality.
 class PasswordManager:
    
     def __init__(self): 

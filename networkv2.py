@@ -1,7 +1,7 @@
 from cryptography.fernet import Fernet 
 import os
-#Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
-
+#'Fernet' class is imported from the 'cryptography.fernet' module.
+#The program imports the os module from the Raspberry Pi OS functionality.
 script_directory = os.path.dirname(os.path.abspath(__file__))
 # Shows the programme's directory
 file_to_check = "pass.docx"
