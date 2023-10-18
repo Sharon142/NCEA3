@@ -1,5 +1,4 @@
-from cryptography.fernet import Fernet
- 
+from cryptography.fernet import Fernet 
 import os
 #Importing crythography to encrypt and decrypt the password file and a os module from Raspberry Pi.
 
