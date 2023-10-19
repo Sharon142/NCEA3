@@ -50,7 +50,7 @@ class PasswordManager:
     def get_password(self, site): 
         return self.password_dict[site] 
     #The password of the site will be returned to the password dictionary.
-def main(): #list of passwords stored for email, instagram, youtube, and something else
+def main(): #This is the function that will accept the input of the end-user and produce an output.
     password = {
         "email": "1234567",
         "instagram": "myigpassword",
@@ -70,7 +70,7 @@ def main(): #list of passwords stored for email, instagram, youtube, and somethi
     done = False
 
     while not done: 
-       
+    #While this function is within the loop.  The code provides the list of options below.   
         choice = input("Enter your choice: ")
         if choice == "1":
             path = input("Enter path: ")
