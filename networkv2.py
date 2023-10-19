@@ -75,7 +75,15 @@ class PasswordManager:
         return self.password_dict[site] 
         #The password of the site will be returned to the password dictionary.
 
-    print("""What do you want to do?
+def main(): #This is the function that will accept the input of the end-user and produce an output.  The options listed in print("""""") will be shown on the command terminal of visual studio code.
+    password = {
+        "email": "1234567",
+        "instagram": "myigpassword",
+        "youtube": "helloworld123",
+        "something": "myfavoritepassword_123"
+    }
+    pm = PasswordManager()
+    print("""What do you want to do? 
     (1) Create a new key
     (2) Load an existing key
     (3) Create new password file
@@ -83,29 +91,28 @@ class PasswordManager:
     (5) Add a new password
     (6) Get a password
     (q) Quit                         
-    """) #a question with a list of choices provided by the programme
-
+    """) #These are the list of options provided by the program.
     done = False
 
     while not done: 
-       
+    #While this function is within the loop.  The code provides the list of options below.   
         choice = input("Enter your choice: ")
         if choice == "1":
             path = input("Enter path: ")
-            doc.create_key(path)
+            pm.create_key(path)
         elif choice == "2":
             path = input("Enter path: ")
-            doc.load_key(path)
+            pm.load_key(path)
         elif choice == "3":
             path = input("Enter path: ")
-            doc.create_password_file(path, password)
+            pm.create_password_file(path, password)
         elif choice == "4":
             path = input("Enter path: ")       
             # Check if the file exists
             if not os.path.isfile(path) : 
                 print(f"The file '{path}' does not exist.")
             else:
-                doc.load_password_file(path)
+                pm.load_password_file(path)
         elif choice == "5":
             site = input("Enter the site: ")
             password = input("Enter the password: ")            
@@ -113,7 +120,7 @@ class PasswordManager:
                 print("weak password length")
             else: 
                 print("suitable password length")
-                doc.add_password(site, password)
+                pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
         elif choice.lower() == "q":
@@ -123,5 +130,5 @@ class PasswordManager:
             print("Invalid choice!")
 
 if __name__ == "__main__":
-    doc()
+    main()
 #This enables the programme to run
