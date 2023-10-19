@@ -48,7 +48,7 @@ class PasswordManager:
         if initial_values is not None: 
             for key, value in initial_values.items(): 
                 self.add_password(key, value)  
-        #If the end-user has created a password, the list of passwords and its accounts must be iterated and the end-user must be allowed to add passwords.
+        
     def load_password_file(self, path): 
         self.password_file = path  
     #After the passwords are decrypted, the system loads the password file to the password dictionary.     
