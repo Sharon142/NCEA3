@@ -50,7 +50,7 @@ class PasswordManager:
     def get_password(self, site): 
         return self.password_dict[site] 
     #The password of the site will be returned to the password dictionary.
-def main(): #This is the function that will accept the input of the end-user and produce an output.
+def main(): #This is the function that will accept the input of the end-user and produce an output.  The options listed in print("""""") will be shown on the command terminal of visual studio code.
     password = {
         "email": "1234567",
         "instagram": "myigpassword",
@@ -66,7 +66,7 @@ def main(): #This is the function that will accept the input of the end-user and
     (5) Add a new password
     (6) Get a password
     (q) Quit                         
-    """) #a question with a list of choices provided by the programme
+    """) #These are the list of options provided by the program.
     done = False
 
     while not done: 
