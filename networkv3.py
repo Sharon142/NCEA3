@@ -49,7 +49,8 @@ class PasswordManager:
         #This function allows the end-user to add passwords to their password dictionary.  Their passwords will be encrypted and decrypted by Fernet.
     def get_password(self, site): 
         return self.password_dict[site] 
-    #The password of the site will be returned to the password dictionary.
+   #The password of the site will be returned to the password dictionary.
+   
 def main(): #This is the function that will accept the input of the end-user and produce an output.  The options listed in print("""""") will be shown on the command terminal of visual studio code.
     password = {
         "email": "1234567",
