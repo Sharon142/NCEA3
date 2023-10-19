@@ -3,25 +3,24 @@ import os
 #'Fernet' class is imported from the 'cryptography.fernet' module.
 #The program imports the os module from the Raspberry Pi OS functionality.
 script_directory = os.path.dirname(os.path.abspath(__file__))
-# Shows the programme's directory
+#This line of code informs the programme of the path of the password file directory.
 file_to_check = "pass.docx"
-# Checks pass.docx
+#This line of code checks for the password file existence (pass.docx).
 file_path = os.path.join(script_directory, file_to_check)
-# Create the full path by joining the script directory and the filename
+# Create the full path by joining the script directory and the filename.
 if os.path.isfile(file_path):
     print(f"The file '{file_to_check}' exists in the script directory.")
 else:
     print(f"The file '{file_to_check}' does not exist in the script directory.")
-#If/else statement for the file existing
+#If/else statement when the code does/does not find the file.
 from docx import Document
-
-# Open an existing Word document
+#This import statement will open pass.docx (Microsoft Word Document).
 doc = Document('pass.docx')
-
-# Add the new password as a paragraph to the document
+#The password file will be imported from pass.docx.
+# A new password (input from the end-user) will be added to pass.docx (Microsoft Word Document).
 doc.add_paragraph(f'New Password: {input}')
 
-# Save the modified document
+#Any changes made will be saved in pass.docx
 doc.save('pass.docx')
 
 class PasswordManager:
