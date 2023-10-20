@@ -91,6 +91,9 @@ def main(): #This is the function that will accept the input of the end-user and
                 pm.load_password_file(path)
         elif choice == "5":
             site = input("Enter the site: ")
+            if site.isalnum():
+                raise ValueError("Alphanumeric characters are not accepted for the site name")
+        
             password = input("Enter the password: ")            
             if len(password) < 12:
                 print("weak password length")
