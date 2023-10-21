@@ -76,12 +76,15 @@ def main(): #This is the function that will accept the input of the end-user and
         if choice == "1":
             path = input("Enter path: ")
             pm.create_key(path)
+        #When the end-user selects option 1, the password manager will create an encryption key.
         elif choice == "2":
             path = input("Enter path: ")
             pm.load_key(path)
+        #When the end-user selects option 2, the password manager will load the encryption key. 
         elif choice == "3":
             path = input("Enter path: ")
             pm.create_password_file(path, password)
+        #When the end-user selects option 3, the password manager will create a password file. 
         elif choice == "4":
             path = input("Enter path: ")       
             # Check if the file exists
@@ -89,6 +92,8 @@ def main(): #This is the function that will accept the input of the end-user and
                 print(f"The file '{path}' does not exist.")
             else:
                 pm.load_password_file(path)
+        #When the end-user selects option 4, the password manager will load a password file, but an error message will be produced if
+        #the password file does not exist.
         elif choice == "5":
             site = input("Enter the site: ")
             if site.isalnum():
@@ -100,14 +105,19 @@ def main(): #This is the function that will accept the input of the end-user and
                     print("weak password length")
                 else: 
                     print("suitable password length")
-                    pm.add_password(site, password)
+                    pm.add_password(site, password) #This if/else statement informs the end-user whether their password is suitable depending 
+                    #on its length.
+        #When the end-user selects option 5, they will be asked to enter a site before entering a password.
         elif choice == "6":
             site = input("What site do you want: ")
+        #When the end-user selects option 6, they will receive the password they wanted after typing a site on the input field.
         elif choice.lower() == "q":
               done = True
               print("Bye")
+        #The end-user types "q" or "Q" to quit the program and the program will say "Bye"
         else:
             print("Invalid choice!")
+        #If the end-user types anything other than the number 1-6 or "q/Q", an error message, "Invalid Choice" will be produced.
 
 if __name__ == "__main__":
     main()
