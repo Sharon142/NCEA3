@@ -93,6 +93,7 @@ def main(): #This is the function that will accept the input of the end-user and
             site = input("Enter the site: ")
             if site.isalnum():
                 print(f"Alphanumeric characters are not accepted for the site name")
+                #An error message will be produced when the end-user types alphanumerics instead of actual websites.
             else:        
                 password = input("Enter the password: ")            
                 if len(password) < 12:
