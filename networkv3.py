@@ -95,11 +95,11 @@ def main(): #This is the function that will accept the input of the end-user and
                 print(f"Alphanumeric characters are not accepted for the site name")
             else:        
                 password = input("Enter the password: ")            
-            if len(password) < 12:
-                print("weak password length")
-            else: 
-                print("suitable password length")
-                pm.add_password(site, password)
+                if len(password) < 12:
+                    print("weak password length")
+                else: 
+                    print("suitable password length")
+                    pm.add_password(site, password)
         elif choice == "6":
             site = input("What site do you want: ")
         elif choice.lower() == "q":
