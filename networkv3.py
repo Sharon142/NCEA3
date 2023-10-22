@@ -96,8 +96,8 @@ def main(): #This is the function that will accept the input of the end-user and
         #the password file does not exist.
         elif choice == "5":
             site = input("Enter the site: ")
-            if site.isalnum():
-                print(f"Alphanumeric characters are not accepted for the site name")
+            if not site.isalnum():
+                print(f"Alphanumeric characters are required for the site name")
                 #An error message will be produced when the end-user types alphanumerics instead of actual websites.
             else:        
                 password = input("Enter the password: ")            
@@ -109,9 +109,8 @@ def main(): #This is the function that will accept the input of the end-user and
                     #on its length.
         #When the end-user selects option 5, they will be asked to enter a site before entering a password.
         elif choice == "6":
-            while True:
-                site = input("What site do you want: ")
-                if not site.isalnum():
+            site = input("What site do you want: ")
+            if not site.isalnum():
                   print("Error: Alphanumeric characters are required for the site name.")#An error message will be produced when non-alphanumeric characters are typed.
         #When the end-user selects option 6, they will receive the password they wanted after typing a site on the input field.
         elif choice.lower() == "q":
