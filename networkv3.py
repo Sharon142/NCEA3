@@ -110,10 +110,11 @@ def main(): #This is the function that will accept the input of the end-user and
         #When the end-user selects option 5, they will be asked to enter a site before entering a password.
         elif choice == "6":
             site = input("What site do you want: ")
-            if not site.isalnum():
-                  print("Error: Alphanumeric characters are required for the site name.")#An error message will be produced when non-alphanumeric characters are typed.
+            if site.isalnum():
+                  password = pm.get_password(site) #The password manager will retrieve a password from a site typed by the end-user.
             else:
-                password = pm.get_password(site) #The password manager will retrieve a password from a site typed by the end-user.
+                print("Error: Alphanumeric characters are required for the site name.")#An error message will be produced when non-alphanumeric characters are typed.
+              
         #When the end-user selects option 6, they will receive the password they wanted after typing a site on the input field.
         elif choice.lower() == "q":
               done = True
