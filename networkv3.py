@@ -28,7 +28,7 @@ class PasswordManager:
         #If the end-user has created a password, the list of passwords and its accounts must be iterated and the end-user must be allowed to add passwords.
     def load_password_file(self, path): 
         self.password_file = path  
-    #After the passwords are decrypted, the system loads the password file to the password dictionary.     
+        #After the passwords are decrypted, the system loads the password file to the password dictionary.     
         try:
            with open(path, 'r') as f:  
                for line in f:         
@@ -126,4 +126,4 @@ def main(): #This is the function that will accept the input of the end-user and
 
 if __name__ == "__main__":
     main()
-#This enables the programme to run
+#This enables the program to run
