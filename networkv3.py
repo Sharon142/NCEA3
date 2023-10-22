@@ -112,6 +112,8 @@ def main(): #This is the function that will accept the input of the end-user and
             site = input("What site do you want: ")
             if not site.isalnum():
                   print("Error: Alphanumeric characters are required for the site name.")#An error message will be produced when non-alphanumeric characters are typed.
+            else:
+                break #The loop will break when an end-user types a valid site name.
         #When the end-user selects option 6, they will receive the password they wanted after typing a site on the input field.
         elif choice.lower() == "q":
               done = True
